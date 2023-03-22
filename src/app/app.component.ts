@@ -7,9 +7,25 @@ import { DataService } from './services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  constructor(private dataService: DataService) {}
 
+
+export class AppComponent {
+  
+  data: any[] = [];
+  filteredData: any[] = [];
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    this.dataService.getData().subscribe((data) => {
+      this.data = data;
+      console.log(this.data); // just to check if the data is correctly loaded
+    });
+  }
   /*
   data: any[] = [];
 
