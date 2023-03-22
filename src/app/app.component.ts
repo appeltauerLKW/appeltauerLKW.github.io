@@ -9,6 +9,8 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   data: any[] = [];
 
+  //--------------------------------------------MINDESTPREIS------------------------------------------------------------------------------
+  
   ngOnInit() {
     let url = 'https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis';
     fetch(url)
@@ -58,4 +60,6 @@ export class AppComponent {
 
       this.editedItem = null;
     }
+
+
 }
