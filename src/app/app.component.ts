@@ -7,12 +7,12 @@ import { DataService } from './services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
-
 export class AppComponent {
   
   data: any[] = [];
   filteredData: any[] = [];
+  editedData: any[] = [];
+  editedItem: any; // add this line to define the property
 
   constructor(private dataService: DataService) { }
 
@@ -26,6 +26,21 @@ export class AppComponent {
       console.log(this.data); // just to check if the data is correctly loaded
     });
   }
+
+  editItem(item: any) {
+    this.editedItem = item; // set the editedItem property to the selected item
+    this.dataService.editItem(item);
+  }
+
+  onSubmit(form: NgForm) {
+    this.dataService.onSubmit(form);
+  }
+
+
+
+
+
+
   /*
   data: any[] = [];
 
