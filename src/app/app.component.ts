@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { DataService } from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private dataService: DataService) {}
+
+  /*
   data: any[] = [];
 
   //--------------------------------------------MINDESTPREIS------------------------------------------------------------------------------
@@ -60,6 +64,6 @@ export class AppComponent {
 
       this.editedItem = null;
     }
-
+    */
 
 }
