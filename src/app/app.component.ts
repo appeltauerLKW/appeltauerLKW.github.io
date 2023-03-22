@@ -27,13 +27,23 @@ export class AppComponent {
     }
 
     onSubmit(form: NgForm) {
-      let url = 'https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis';
-      let data = this.editItem;
+      const Id = this.editedItem.id;
+      let url = `https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis/${Id}`;
+      let data = this.editedItem;
       let body = {
-        mindestpreis: {
-          data
-        }
+        mindestpreis: data
+          
+        
       }
+
+      //print übergenenen string am ende
+      let tempElement = document.createElement('div');
+      tempElement.innerHTML = JSON.stringify(body);
+      document.body.appendChild(tempElement);
+      document.body.append("id:");
+      document.body.append(this.editedItem.id);
+
+
       //TODO: geht nicht weil der ganze body expected wird also ich muss das ganze schicken nicht nur den neuen valie 
       //-> edit button muss für jede row neuen tag haben? und dynamisch mitgeneriert werden sonst werden alle geändert
       fetch(url, {
