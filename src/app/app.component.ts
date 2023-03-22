@@ -28,12 +28,11 @@ export class AppComponent {
 
     onSubmit(form: NgForm) {
       const Id = this.editedItem.id;
+      const data = this.editedItem;
       let url = `https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis/${Id}`;
-      let data = this.editedItem;
       let body = {
-        mindestpreis: data
-          
-        
+        //ACHTUNG DER TYPO IST BEACHBSICHTIGT!! SHEETY ERWARTET "mindestprei" OHNE "s"
+        mindestprei: data
       }
 
       //print übergenenen string am ende
@@ -42,18 +41,19 @@ export class AppComponent {
       document.body.appendChild(tempElement);
       document.body.append("id:");
       document.body.append(this.editedItem.id);
+      
 
-
-      //TODO: geht nicht weil der ganze body expected wird also ich muss das ganze schicken nicht nur den neuen valie 
-      //-> edit button muss für jede row neuen tag haben? und dynamisch mitgeneriert werden sonst werden alle geändert
       fetch(url, {
         method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify(body)
       })
       .then((response) => response.json())
       .then(json => {
         // Do something with object
-        console.log(json.mindespreis);
+        document.body.append(JSON.stringify(json));
       });
 
       this.editedItem = null;
