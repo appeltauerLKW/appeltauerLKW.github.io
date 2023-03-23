@@ -34,8 +34,8 @@
             <p>Organization: {{ item.org }}</p>
             <p>From Country: {{ item.vonLand }}</p>
             <p>To Country: {{ item.zuLand }}</p>
-            <p>Minimum Price per km: {{ item['mindPreis /Km'] }}</p>
-            <p>Minimum Price per load: {{ item['mindPreis /Ladung'] }}</p>
+            <p>Minimum Price per km: {{ item.mindPreisKm }}</p>
+            <p>Minimum Price per load: {{ item.mindPreisLadung }}</p>
             <button type="button" class="btn btn-default btn-sm" (click)="editItem(item)">
                 <span class="glyphicon glyphicon-edit"></span> Edit
             </button>
