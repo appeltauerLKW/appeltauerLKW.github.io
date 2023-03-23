@@ -9,15 +9,17 @@ import { DisqualifikationskriterienComponent } from './disqualifikationskriterie
 import { KundenzuordnungComponent } from './kundenzuordnung/kundenzuordnung.component';
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
 import { AusnahmenComponent } from './ausnahmen/ausnahmen.component';
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MindestpreisComponent,
+    AusnahmenComponent,
     DisqualifikationskriterienComponent,
-    KundenzuordnungComponent,
     EinstellungenComponent,
-    AusnahmenComponent
+    KundenzuordnungComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
