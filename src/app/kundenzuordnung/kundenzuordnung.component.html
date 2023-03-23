@@ -1,1 +1,43 @@
-<p>kundenzuordnung works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kundenzuordnung</h1>
+    <hr>
+    <button type="button" class="btn btn-sm" (click)="createItem(true)">
+        <span class="glyphicon glyphicon-edit"></span> Neu
+    </button>
+    <form #editForm="ngForm" *ngIf="addedItem" (ngSubmit)="onSubmit(editForm)" style="background-color:#f8f8f8; padding: 15px;">
+        <h3>Neuer Kunde</h3> 
+        <label for="org">LKW Walter PNR: </label>
+        <input type="text" [(ngModel)]="addedItem.lkwWalterPnr" name="lkwWalterPnr" ><br>
+    
+        <label for="vonLand">Company Transporeon ID: </label>
+        <input type="text" [(ngModel)]="addedItem.companyTransporeonId" name="companyTransporeonId" ><br>
+    
+        <label for="zuLand">Kundenname Volltext: </label>
+        <input type="text" [(ngModel)]="addedItem.kundennameVolltext" name="kundennameVolltext" ><br>
+    
+        <input type="submit" value="Speichern">
+    </form>
+    <table>
+        <tr>
+            <th>LKW Walter PNR</th>
+            <th>Company Transporeon ID</th>
+            <th>Kundenname Volltext</th>
+        </tr>
+        <tr *ngFor="let item of data">
+            <td>{{item.lkwWalterPnr}}</td>
+            <td>{{item.companyTransporeonId}}</td>
+            <td>{{item.kundennameVolltext}}</td>
+        </tr>
+    </table>
+   
+
+</body>
+</html>
