@@ -37,7 +37,7 @@ export class EinstellungenComponent {
     this.editedItem = Object.assign({}, item);
   }
 
-  onSubmit(form: NgForm) {
+  onSubmitNew(form: NgForm) {
     const data = this.addedItem;
     let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen';
     let body = {
@@ -77,5 +77,46 @@ export class EinstellungenComponent {
       document.body.appendChild(responseElement); //IMPORTANT --- SHOWS ACTUAL RESPONSE CODE!!! DONT DELETE
     });  
     this.addedItem = false;
+  }
+
+  onSubmitEdit(form: NgForm) {
+    const Id = this.editedItem.id;
+      const data = this.editedItem;
+      let url = `https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen/${Id}`;
+      let body = {
+        einstellungen: {
+          "org": this.editedItem.org,
+          "email": this.editedItem.email,
+          "orgEhActive": this.editedItem.orgEhActive,
+          "hhBisBeladezeitendePreisabgabge": this.editedItem.hhBisBeladezeitendePreisabgabge,
+          "hhBisBeladezeitendeGueltigkeit": this.editedItem.hhBisBeladezeitendeGueltigkeit,
+          "mindestPreisCheck": this.editedItem.mindestPreisCheck,
+          "anzahlLadungenAmTag": this.editedItem.anzahlLadungenAmTag,
+          "multiplikator": this.editedItem.multiplikator
+        }
+      }
+
+      //print übergenenen string am ende
+      let tempElement = document.createElement('div');
+      tempElement.innerHTML = JSON.stringify(body);
+      document.body.appendChild(tempElement);
+      document.body.append("id:");
+      document.body.append(this.editedItem.id);
+      
+
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      })
+      .then((response) => response.json())
+      .then(json => {
+        // Do something with object
+        document.body.append(JSON.stringify(json));
+      });
+
+      this.editedItem = null;
   }
 }

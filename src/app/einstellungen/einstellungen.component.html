@@ -12,31 +12,59 @@
     <button type="button" class="btn btn-sm" (click)="createItem(true)">
         <span class="glyphicon glyphicon-edit"></span> Neu
     </button>
-    <form #editForm="ngForm" *ngIf="addedItem" (ngSubmit)="onSubmit(editForm)" style="background-color:#f8f8f8; padding: 15px;">
+    <form #newForm="ngForm" *ngIf="addedItem" (ngSubmit)="onSubmitNew(newForm)" style="background-color:#f8f8f8; padding: 15px;">
         <h3>Neuer Kunde</h3> 
         <label for="org">ORG Einheit: </label>
-        <input type="text" [(ngModel)]="addedItem.orgEinheit" name="orgEinheit" ><br>
+        <input type="text" [(ngModel)]="addedItem.org" name="org" required/><br>
     
         <label for="vonLand">Email: </label>
-        <input type="text" [(ngModel)]="addedItem.email" name="email" ><br>
+        <input type="text" [(ngModel)]="addedItem.email" name="email" required><br>
     
         <label for="zuLand">ORG EH active: </label>
-        <input type="text" [(ngModel)]="addedItem.orgEhActive" name="orgEhActive" ><br>
+        <input type="text" [(ngModel)]="addedItem.orgEhActive" name="orgEhActive" required><br>
 
         <label for="zuLand">HH bis Beladezeitende Preisabgabge: </label>
-        <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendePreisabgabge" name="hhBisBeladezeitendePreisabgabge" ><br>
+        <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendePreisabgabge" name="hhBisBeladezeitendePreisabgabge" required><br>
 
         <label for="zuLand">HH bis Beladezeitende Gueltigkeit: </label>
-        <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendeGueltigkeit" name="hhBisBeladezeitendeGültigkeit" ><br>
+        <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendeGueltigkeit" name="hhBisBeladezeitendeGültigkeit" required><br>
     
         <label for="zuLand">Mindest-preis check: </label>
-        <input type="text" [(ngModel)]="addedItem.mindestPreisCheck" name="mindestPreisCheck" ><br>
+        <input type="text" [(ngModel)]="addedItem.mindestPreisCheck" name="mindestPreisCheck" required ><br>
 
         <label for="zuLand">Anzahl Ladungen am Tag: </label>
-        <input type="text" [(ngModel)]="addedItem.anzahlLadungenAmTag" name="anzahlLadungenAmTag" ><br>
+        <input type="text" [(ngModel)]="addedItem.anzahlLadungenAmTag" name="anzahlLadungenAmTag" required><br>
 
         <label for="zuLand">Multiplikator: </label>
-        <input type="text" [(ngModel)]="addedItem.multiplikator" name="multiplikator" ><br>
+        <input type="text" [(ngModel)]="addedItem.multiplikator" name="multiplikator" required><br>
+
+        <input type="submit" value="Speichern">
+    </form>
+    <form #editForm="ngForm" *ngIf="editedItem" (ngSubmit)="onSubmitEdit(editForm)" style="background-color:#f8f8f8; padding: 15px; ">
+        <h3>Bearbeiten</h3> 
+        <label for="org">ORG Einheit: </label>
+        <input type="text" [(ngModel)]="editedItem.org" name="org" disabled=""><br>
+    
+        <label for="vonLand">Email: </label>
+        <input type="text" [(ngModel)]="editedItem.email" name="email" required><br>
+    
+        <label for="zuLand">ORG EH active: </label>
+        <input type="text" [(ngModel)]="editedItem.orgEhActive" name="orgEhActive" required><br>
+
+        <label for="zuLand">HH bis Beladezeitende Preisabgabge: </label>
+        <input type="text" [(ngModel)]="editedItem.hhBisBeladezeitendePreisabgabge" name="hhBisBeladezeitendePreisabgabge" required><br>
+
+        <label for="zuLand">HH bis Beladezeitende Gueltigkeit: </label>
+        <input type="text" [(ngModel)]="editedItem.hhBisBeladezeitendeGueltigkeit" name="hhBisBeladezeitendeGültigkeit" required><br>
+    
+        <label for="zuLand">Mindest-preis check: </label>
+        <input type="text" [(ngModel)]="editedItem.mindestPreisCheck" name="mindestPreisCheck" required><br>
+
+        <label for="zuLand">Anzahl Ladungen am Tag: </label>
+        <input type="text" [(ngModel)]="editedItem.anzahlLadungenAmTag" name="anzahlLadungenAmTag" required><br>
+
+        <label for="zuLand">Multiplikator: </label>
+        <input type="text" [(ngModel)]="editedItem.multiplikator" name="multiplikator" required><br>
 
         <input type="submit" value="Speichern">
     </form>
@@ -53,7 +81,7 @@
             <th>Edit</th>
         </tr>
         <tr *ngFor="let item of data">
-            <td>{{item.orgEinheit}}</td>
+            <td>{{item.org}}</td>
             <td>{{item.email}}</td>
             <td>{{item.orgEhActive}}</td>
             <td>{{item.hhBisBeladezeitendePreisabgabge}}</td>
@@ -64,25 +92,7 @@
             <button type="button" class="btn btn-default btn-sm" (click)="editItem(item)">
                 <span class="glyphicon glyphicon-edit"></span> Edit
             </button>
-            <form #editForm="ngForm" *ngIf="editedItem" (ngSubmit)="onSubmit(editForm)" style="background-color:rgb(239, 239, 239); padding: 15px;">
-                <h3>Bearbeiten:</h3> 
-                <label for="org">Organization:</label>
-                <input type="text" [(ngModel)]="editedItem.org" name="org" disabled><br>
             
-                <label for="vonLand">From Country:</label>
-                <input type="text" [(ngModel)]="editedItem.vonLand" name="vonLand" disabled><br>
-            
-                <label for="zuLand">To Country:</label>
-                <input type="text" [(ngModel)]="editedItem.zuLand" name="zuLand" disabled><br>
-            
-                <label for="mindPreisKm">Minimum Price per km:</label>
-                <input type="text" [(ngModel)]="editedItem.mindPreisKm" name="mindPreisKm"><br>
-            
-                <label for="mindPreisLoad">Minimum Price per load:</label>
-                <input type="text" [(ngModel)]="editedItem.mindPreisLadung" name="mindPreisLoad"><br>
-            
-                <input type="submit" value="Save">
-            </form>
         </tr>
     </table>
    
