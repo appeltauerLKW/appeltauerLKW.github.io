@@ -16,7 +16,7 @@ export class DisqualifikationskriterienComponent {
   blacklist: any = "";
   
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien';
+    let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/disqualifikationskriterien';
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -31,7 +31,7 @@ export class DisqualifikationskriterienComponent {
   }
 
   onSubmit(form: NgForm) {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien';
+    let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/disqualifikationskriterien';
   
     if(this.addedItem.filterkriteriumName == null) this.addedItem.filterkriteriumName = this.filterName;
     if(this.addedItem.beschreibung == null) this.addedItem.beschreibung = this.description;

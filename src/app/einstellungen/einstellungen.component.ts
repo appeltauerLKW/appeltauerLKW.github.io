@@ -88,7 +88,7 @@ export class EinstellungenComponent {
   onSubmitEdit(form: NgForm) {
     const Id = this.editedItem.id;
       const data = this.editedItem;
-      let url = `https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen/${Id}`;
+      let url = `https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/einstellungen/${Id}`;
       let body = {
         einstellungen: {
           "org": this.editedItem.org,
