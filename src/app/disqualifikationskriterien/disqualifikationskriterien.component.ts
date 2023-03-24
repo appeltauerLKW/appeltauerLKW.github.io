@@ -14,11 +14,9 @@ export class DisqualifikationskriterienComponent {
   filterName: any = "";
   description: any = "";
   blacklist: any = "";
-  filter:string = "";
-  newOrg: any;
   
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien?filter[org]=' + this.filter;
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien';
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -28,17 +26,12 @@ export class DisqualifikationskriterienComponent {
     });
   }
 
-  onSubmitOrg(form: NgForm) {
-      this.filter = this.newOrg;
-      this.ngOnInit();
-    }
-
   createItem(item: any) {
     this.addedItem = Object.assign({}, item);
   }
 
   onSubmit(form: NgForm) {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien?filter[org]=' + this.filter;
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/disqualifikationskriterien';
   
     if(this.addedItem.filterkriteriumName == null) this.addedItem.filterkriteriumName = this.filterName;
     if(this.addedItem.beschreibung == null) this.addedItem.beschreibung = this.description;
