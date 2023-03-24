@@ -10,6 +10,7 @@ import { KundenzuordnungComponent } from './kundenzuordnung/kundenzuordnung.comp
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
 import { AusnahmenComponent } from './ausnahmen/ausnahmen.component';
 import { FilterComponent } from './filter/filter.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FilterComponent } from './filter/filter.component';
     DisqualifikationskriterienComponent,
     EinstellungenComponent,
     KundenzuordnungComponent,
-    FilterComponent
+    FilterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
