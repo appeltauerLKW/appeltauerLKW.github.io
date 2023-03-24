@@ -15,10 +15,12 @@ export class AusnahmenComponent {
   description: any = "";
   blacklist: any = "";
   editedItem: any;
+  filter:string = "";
+  newOrg: any;
 
 
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/ausnahmen';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/ausnahmen?filter[org]=' + this.filter;
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -26,6 +28,11 @@ export class AusnahmenComponent {
       console.log(json.ausnahmen);
       this.data = json.ausnahmen;
     });
+  }
+
+  onSubmitOrg(form: NgForm) {
+    this.filter = this.newOrg;
+    this.ngOnInit();
   }
 
   createItem(item: any) {
@@ -39,7 +46,7 @@ export class AusnahmenComponent {
 
   onSubmitNew(form: NgForm) {
     const data = this.addedItem;
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/ausnahmen';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/ausnahmen?filter[org]=' + this.filter;
     let body = {
       //ACHTUNG: TYPO IN "ausnahmen" ist gewünscht und wird von sheety so erwartet: "ausnahman"
       ausnahman: {

@@ -8,11 +8,11 @@ import { NgForm } from '@angular/forms';
 })
 export class MindestpreisComponent {
   data: any[] = [];
-
-  //--------------------------------------------MINDESTPREIS------------------------------------------------------------------------------
+  filter:string = "";
+  newOrg: any;
   
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/mindestpreis';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/mindestpreis?filter[org]=' + this.filter;
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -26,9 +26,15 @@ export class MindestpreisComponent {
 
     editItem(item: any) {
       this.editedItem = Object.assign({}, item);
+      
     }
 
-    onSubmit(form: NgForm) {
+    onSubmitOrg(form: NgForm) {
+      this.filter = this.newOrg;
+      this.ngOnInit();
+    }
+
+    onSubmitEdit(form: NgForm) {
       const Id = this.editedItem.id;
       const data = this.editedItem;
       let url = `https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/mindestpreis/${Id}`;

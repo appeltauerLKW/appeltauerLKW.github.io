@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,12 @@
 </head>
 <body>
     <h1>Disqualifikationskriterien</h1>
+    <form #orgForm="ngForm" (ngSubmit)="onSubmitOrg(orgForm)" style="margin-bottom: 20px;">
+        <label for="filter">Org Einheit:</label>
+        <input type="text" [(ngModel)]="newOrg" name="filter">
+        
+        <input type="submit" value="Save">
+    </form>
     <hr>
     <button type="button" class="btn btn-sm" (click)="createItem(true)">
         <span class="glyphicon glyphicon-edit"></span> Neu
@@ -15,26 +22,26 @@
     <form #editForm="ngForm" *ngIf="addedItem" (ngSubmit)="onSubmit(editForm)" style="background-color:#f8f8f8; padding: 15px;">
         <h3>Neuen Filter anlegen</h3> 
         <label for="org">Filterkriterium: </label>
-        <input type="text" [(ngModel)]="addedItem.lkwWalterPnr" name="lkwWalterPnr" ><br>
+        <input type="text" [(ngModel)]="addedItem.filterkriteriumName" name="filterkriteriumName" ><br>
     
         <label for="vonLand">Beschreibung: </label>
-        <input type="text" [(ngModel)]="addedItem.companyTransporeonId" name="companyTransporeonId" ><br>
+        <input type="text" [(ngModel)]="addedItem.beschreibung" name="beschreibung" ><br>
     
         <label for="zuLand">Blacklist: </label>
-        <input type="text" [(ngModel)]="addedItem.kundennameVolltext" name="kundennameVolltext" ><br>
+        <input type="text" [(ngModel)]="addedItem.blacklist" name="blacklist" ><br>
     
         <input type="submit" value="Speichern">
     </form>
     <table>
         <tr>
-            <th>LKW Walter PNR</th>
-            <th>Company Transporeon ID</th>
-            <th>Kundenname Volltext</th>
+            <th>Filterkriterium</th>
+            <th>Beschreibung</th>
+            <th>Blacklist</th>
         </tr>
         <tr *ngFor="let item of data">
-            <td>{{item.lkwWalterPnr}}</td>
-            <td>{{item.companyTransporeonId}}</td>
-            <td>{{item.kundennameVolltext}}</td>
+            <td>{{item.filterkriteriumName}}</td>
+            <td>{{item.beschreibung}}</td>
+            <td>{{item.blacklist}}</td>
         </tr>
     </table>
    

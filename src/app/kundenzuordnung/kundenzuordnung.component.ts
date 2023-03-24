@@ -14,9 +14,11 @@ export class KundenzuordnungComponent {
   filterName: any = "";
   description: any = "";
   blacklist: any = "";
+  filter:string = "";
+  newOrg: any;
 
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/kundenzuordnung';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/kundenzuordnung?filter[org]=' + this.filter;
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -25,14 +27,17 @@ export class KundenzuordnungComponent {
       this.data = json.kundenzuordnung;
     });
   }
-
+  onSubmitOrg(form: NgForm) {
+      this.filter = this.newOrg;
+      this.ngOnInit();
+    }
   createItem(item: any) {
     this.addedItem = Object.assign({}, item);
   }
 
   onSubmit(form: NgForm) {
     const data = this.addedItem;
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/kundenzuordnung';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/kundenzuordnung?filter[org]=' + this.filter;
     let body = {
       kundenzuordnung: {
         "lkwWalterPnr": this.addedItem.lkwWalterPnr,

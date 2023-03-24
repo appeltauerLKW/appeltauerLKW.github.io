@@ -8,6 +8,12 @@
 </head>
 <body>
     <h1>Einstellungen</h1>
+    <form #orgForm="ngForm" (ngSubmit)="onSubmitOrg(orgForm)" style="margin-bottom: 20px;">
+        <label for="filter">Org Einheit:</label>
+        <input type="text" [(ngModel)]="newOrg" name="filter">
+        
+        <input type="submit" value="Save">
+    </form>
     <hr>
     <button type="button" class="btn btn-sm" (click)="createItem(true)">
         <span class="glyphicon glyphicon-edit"></span> Neu

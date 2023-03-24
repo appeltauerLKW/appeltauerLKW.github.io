@@ -9,9 +9,15 @@
 </head>
 <body>
     <h1>Mindestpreis</h1>
+    <form #orgForm="ngForm" (ngSubmit)="onSubmitOrg(orgForm)" style="margin-bottom: 20px;">
+        <label for="filter">Org Einheit:</label>
+        <input type="text" [(ngModel)]="newOrg" name="filter">
+        
+        <input type="submit" value="Save">
+    </form>
     <hr>
     <form>
-        <form #editForm="ngForm" *ngIf="editedItem" (ngSubmit)="onSubmit(editForm)" style="background-color:rgb(239, 239, 239); padding: 15px;">
+        <form #editForm="ngForm" *ngIf="editedItem" (ngSubmit)="onSubmitEdit(editForm)" style="background-color:rgb(239, 239, 239); padding: 15px;">
             <h3>Edit Data:</h3> 
             <label for="org">Organization:</label>
             <input type="text" [(ngModel)]="editedItem.org" name="org" disabled><br>

@@ -15,10 +15,11 @@ export class EinstellungenComponent {
   description: any = "";
   blacklist: any = "";
   editedItem: any;
-
+  filter:string = "";
+  newOrg: any;
 
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -27,6 +28,11 @@ export class EinstellungenComponent {
       this.data = json.einstellungen;
     });
   }
+
+  onSubmitOrg(form: NgForm) {
+      this.filter = this.newOrg;
+      this.ngOnInit();
+    }
 
   createItem(item: any) {
     this.addedItem = Object.assign({}, item);
@@ -39,7 +45,7 @@ export class EinstellungenComponent {
 
   onSubmitNew(form: NgForm) {
     const data = this.addedItem;
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
     let body = {
       einstellungen: {
         "orgEinheit": this.addedItem.orgEinheit,
