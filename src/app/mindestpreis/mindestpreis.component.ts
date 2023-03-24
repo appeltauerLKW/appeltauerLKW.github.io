@@ -12,7 +12,7 @@ export class MindestpreisComponent {
   //--------------------------------------------MINDESTPREIS------------------------------------------------------------------------------
   
   ngOnInit() {
-    let url = 'https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis';
+    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/mindestpreis';
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -31,7 +31,7 @@ export class MindestpreisComponent {
     onSubmit(form: NgForm) {
       const Id = this.editedItem.id;
       const data = this.editedItem;
-      let url = `https://api.sheety.co/45604bc63728735dab6c1b62ccf11028/filterkriterienAnbotsabgabe/mindestpreis/${Id}`;
+      let url = `https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/mindestpreis/${Id}`;
       let body = {
         //ACHTUNG DER TYPO IST BEACHBSICHTIGT!! SHEETY ERWARTET "mindestprei" OHNE "s"
         mindestprei: data

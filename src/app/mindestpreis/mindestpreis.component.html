@@ -30,19 +30,27 @@
         
             <input type="submit" value="Save">
         </form>
-        <div *ngFor="let item of data">
-            <h2>Item</h2>
-            <p>Organization: {{ item.org }}</p>
-            <p>From Country: {{ item.vonLand }}</p>
-            <p>To Country: {{ item.zuLand }}</p>
-            <p>Minimum Price per km: {{ item.mindPreisKm }}</p>
-            <p>Minimum Price per load: {{ item.mindPreisLadung }}</p>
-            <button type="button" class="btn btn-default btn-sm" (click)="editItem(item)">
-                <span class="glyphicon glyphicon-edit"></span> Edit
-            </button>
-            <hr>
-        </div>
-        
+        <table>
+            <tr>
+                <th>Organization</th>
+                <th>From Country</th>
+                <th>To Country</th>
+                <th>Minimum Price per km</th>
+                <th>Minimum Price per load</th>
+                <th>Edit</th>
+            </tr>
+            <tr *ngFor="let item of data">
+                <td>{{item.org}}</td>
+                <td>{{item.vonLand}}</td>
+                <td>{{item.zuLand}}</td>
+                <td>{{item.mindPreisKm}}</td>
+                <td>{{item.mindPreisLadung}}</td>
+                <button type="button" class="btn btn-default btn-sm" (click)="editItem(item)">
+                    <span class="glyphicon glyphicon-edit"></span> Edit
+                </button>
+                
+            </tr>
+        </table>
     </form>
     
 
