@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  filterMode = false;
 
+
+
+ngOnInit(): void {
+}
+
+
+filterToggle() {
+  this.filterMode = !this.filterMode 
+}
 }
