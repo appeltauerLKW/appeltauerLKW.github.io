@@ -85,12 +85,12 @@ export class AusnahmenComponent {
       let body = {
         //ACHTUNG: TYPO IN "ausnahmen" ist gewünscht und wird von sheety so erwartet: "ausnahman"
         ausnahman: {
-          "org": this.addedItem.org,
-          "pnr": this.addedItem.pnr,
-          "vonLand": this.addedItem.vonLand,
-          "vonPlz": this.addedItem.vonPlz,
-          "nachLand": this.addedItem.nachLand,
-          "nachPlz": this.addedItem.nachPlz
+          "org": this.editedItem.org,
+          "pnr": this.editedItem.pnr,
+          "vonLand": this.editedItem.vonLand,
+          "vonPlz": this.editedItem.vonPlz,
+          "nachLand": this.editedItem.nachLand,
+          "nachPlz": this.editedItem.nachPlz
         }
       }
 
