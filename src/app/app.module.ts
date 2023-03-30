@@ -9,7 +9,6 @@ import { DisqualifikationskriterienComponent } from './disqualifikationskriterie
 import { KundenzuordnungComponent } from './kundenzuordnung/kundenzuordnung.component';
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
 import { AusnahmenComponent } from './ausnahmen/ausnahmen.component';
-import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { NavComponent } from './nav/nav.component';
     DisqualifikationskriterienComponent,
     EinstellungenComponent,
     KundenzuordnungComponent,
-    HomeComponent,
     NavComponent
   ],
   imports: [

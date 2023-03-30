@@ -6,6 +6,7 @@ import { DisqualifikationskriterienComponent } from './disqualifikationskriterie
 import { EinstellungenComponent } from './einstellungen/einstellungen.component';
 import { KundenzuordnungComponent } from './kundenzuordnung/kundenzuordnung.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/mindestpreis', pathMatch: 'full' },
   { path: 'mindestpreis', component: MindestpreisComponent },
