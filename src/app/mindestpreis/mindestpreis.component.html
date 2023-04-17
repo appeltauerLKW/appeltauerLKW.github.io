@@ -29,10 +29,10 @@
             <input type="text" [(ngModel)]="editedItem.zuLand" name="zuLand" disabled><br>
         
             <label for="mindPreisKm">Minimum Price per km:</label>
-            <input type="text" [(ngModel)]="editedItem.mindPreisKm" name="mindPreisKm"><br>
+            <input type="number" step="any" [(ngModel)]="editedItem.mindPreisKm" name="mindPreisKm"><br>
         
             <label for="mindPreisLoad">Minimum Price per load:</label>
-            <input type="text" [(ngModel)]="editedItem.mindPreisLadung" name="mindPreisLoad"><br>
+            <input type="number" step="any" [(ngModel)]="editedItem.mindPreisLadung" name="mindPreisLoad"><br>
         
             <input type="submit" value="Save">
         </form>
