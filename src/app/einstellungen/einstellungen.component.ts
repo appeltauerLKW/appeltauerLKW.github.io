@@ -19,7 +19,7 @@ export class EinstellungenComponent {
   newOrg: any;
 
   ngOnInit() {
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
+    let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
     fetch(url)
     .then((response) => response.json())
     .then(json => {
@@ -45,7 +45,7 @@ export class EinstellungenComponent {
 
   onSubmitNew(form: NgForm) {
     const data = this.addedItem;
-    let url = 'https://api.sheety.co/99e2152a57a16b325a082194762b640d/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
+    let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
     let body = {
       einstellungen: {
         "orgEinheit": this.addedItem.orgEinheit,
