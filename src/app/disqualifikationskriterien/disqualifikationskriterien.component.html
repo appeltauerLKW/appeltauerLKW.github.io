@@ -18,27 +18,25 @@
         <label for="org">Filterkriterium: </label>
         <input type="text" [(ngModel)]="addedItem.filterkriteriumName" name="filterkriteriumName" ><br>
     
-        <label for="vonLand">Beschreibung: </label>
-        <input type="text" [(ngModel)]="addedItem.beschreibung" name="beschreibung" ><br>
+        <label for="vonLand">Blacklist: </label>
+        <input type="text" [(ngModel)]="addedItem.blacklist" name="beschreibung" ><br>
     
-        <label for="zuLand">Blacklist: </label>
-        <input type="text" [(ngModel)]="addedItem.blacklist" name="blacklist" ><br>
+        <label for="zuLand">Fahrzeug (Anforderungen): </label>
+        <input type="text" [(ngModel)]="addedItem['fahrzeug (anforderung)']" name="blacklist" ><br>
     
         <input type="submit" value="Speichern">
     </form>
     <table>
         <tr>
             <th>Filterkriterium</th>
-            <th>Beschreibung</th>
             <th>Blacklist</th>
+            <th>Fahrzeug (Anforderungen)</th>
         </tr>
         <tr *ngFor="let item of data">
             <td>{{item.filterkriteriumName}}</td>
-            <td>{{item.beschreibung}}</td>
             <td>{{item.blacklist}}</td>
+            <td>{{item['fahrzeug (anforderung)']}}</td>
         </tr>
     </table>
-   
-
 </body>
 </html>

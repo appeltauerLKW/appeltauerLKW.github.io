@@ -40,8 +40,9 @@ export class DisqualifikationskriterienComponent {
     let body = {
       disqualifikationskriterien: {
         "filterkriteriumName": this.addedItem.filterkriteriumName,
-        "beschreibung": this.addedItem.beschreibung,
-        "blacklist": this.addedItem.blacklist
+        "beschreibung": "",
+        "blacklist": this.addedItem.blacklist,
+        "fahrzeug (anforderung)": this.addedItem['fahrzeug (anforderung)']
       }
     }
 
