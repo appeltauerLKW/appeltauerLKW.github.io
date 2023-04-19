@@ -1,0 +1,9 @@
+.triggerbutton {
+    background-color: rgb(240, 44, 185);
+    color:white;
+    border-radius: 5px;
+    border-color: rgb(240, 44, 185);
+    margin-top: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+}
