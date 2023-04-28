@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class NavComponent {
 
     triggerEvent() {
-      let url = 'http://innoeva-pricing-broker-cc-cmp.test.lkw-walter.com/innoeva-pricing-broker-cc-cmp/api/reloadConfigs';
+      let url = 'https://innoeva-pricing-broker-cc-cmp.test.lkw-walter.com/innoeva-pricing-broker-cc-cmp/api/reloadConfigs';
       let body = {}
       fetch(url, {
         method: 'POST',
