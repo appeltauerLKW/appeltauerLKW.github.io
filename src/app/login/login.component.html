@@ -7,12 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <form>
-        <label for="password">Password:</label>
-        <input type="password" id="password" [(ngModel)]="passwordInput">
-      
-        <button (click)="login()">Login</button>
+    <div class ="center">
+        <form class="login-form" #passwordForm="ngForm" *ngIf="logInShow" (ngSubmit)="onSubmit(passwordForm)">
+            <h3>Login</h3> 
+            <hr><br>
+            <label for="pwd" class="form">Passwort: </label><br>
+            <input type="password" [(ngModel)]="passwordInput" name="pwd" class="form"><br><br>
+        
+            <input type="submit" value="Speichern" class="form">
         </form>
     </div> 
 </body>

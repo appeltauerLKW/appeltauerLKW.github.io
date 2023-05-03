@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { NavComponent } from 'src/app/nav/nav.component';
 
 @Component({
   selector: 'app-login',
@@ -8,22 +10,25 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private resolver: ComponentFactoryResolver, private viewContainerRef: ViewContainerRef) { }
 
   user = {
-    password: 'test'
+    password: 'LKWWalter$'
   };
 
   passwordInput = '';
-  loggedin: boolean = false
+  logInShow: boolean = true
 
-  login() {
+  onSubmit(form: NgForm) {
     if (this.passwordInput === this.user.password) {
       console.log('Login successful');
-      this.router.navigate(['/nav']);
+      this.logInShow = false;
+      const factory = this.resolver.resolveComponentFactory(NavComponent);
+      const componentRef = this.viewContainerRef.createComponent(factory);
+      document.body.appendChild(componentRef.location.nativeElement);
     } else {
-      console.log('Invalid username or password');
-      console.log(this.passwordInput);
+      console.log('Invalid username or password: ' + this.passwordInput);
+      alert("Ungültiges Passtort!")
     }
   }
 
