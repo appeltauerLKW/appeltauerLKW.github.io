@@ -23,27 +23,33 @@
         <label for="org">ORG Einheit: </label>
         <input type="text" [(ngModel)]="addedItem.org" name="org" required/><br>
     
-        <label for="vonLand">Email: </label>
+        <label for="email">Email: </label>
         <input type="text" [(ngModel)]="addedItem.email" name="email" required><br>
     
-        <label for="zuLand">ORG EH active: </label>
+        <label for="orgEhActive">ORG EH active: </label>
         <input type="text" [(ngModel)]="addedItem.orgEhActive" name="orgEhActive" required><br>
 
-        <label for="zuLand">HH bis Beladezeitende Preisabgabge: </label>
+        <label for="hhBisBeladezeitendePreisabgabge">HH bis Beladezeitende Preisabgabge: </label>
         <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendePreisabgabge" name="hhBisBeladezeitendePreisabgabge" required><br>
 
-        <label for="zuLand">HH bis Beladezeitende Gueltigkeit: </label>
+        <label for="hhBisBeladezeitendeGültigkeit">HH bis Beladezeitende Gueltigkeit: </label>
         <input type="text" [(ngModel)]="addedItem.hhBisBeladezeitendeGueltigkeit" name="hhBisBeladezeitendeGültigkeit" required><br>
     
-        <label for="zuLand">Mindest-preis check: </label>
+        <label for="mindestPreisCheck">Mindest-preis check: </label>
         <input type="text" [(ngModel)]="addedItem.mindestPreisCheck" name="mindestPreisCheck" required ><br>
 
-        <label for="zuLand">Anzahl Ladungen am Tag: </label>
+        <label for="anzahlLadungenAmTag">Anzahl Ladungen am Tag: </label>
         <input type="text" [(ngModel)]="addedItem.anzahlLadungenAmTag" name="anzahlLadungenAmTag" required><br>
 
-        <label for="zuLand">Multiplikator: </label>
+        <label for="multiplikator">Multiplikator: </label>
         <input type="text" [(ngModel)]="addedItem.multiplikator" name="multiplikator" required><br>
 
+        <label for="zusätzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt">Multiplikator: </label>
+        <input type="text" [(ngModel)]="addedItem.zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt" name="zusätzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt" required><br>
+
+        <label for="ausnahmenAllgGültigerFilterkriterienAufDieserOrgUnit">Multiplikator: </label>
+        <input type="text" [(ngModel)]="addedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit" name="ausnahmenAllgGültigerFilterkriterienAufDieserOrgUnit" required><br>
+        
         <input type="submit" value="Speichern">
     </form>
     <form #editForm="ngForm" *ngIf="editedItem" (ngSubmit)="onSubmitEdit(editForm)" style="background-color:#f8f8f8; padding: 15px; ">
@@ -72,6 +78,12 @@
         <label for="zuLand">Multiplikator: </label>
         <input type="text" [(ngModel)]="editedItem.multiplikator" name="multiplikator" required><br>
 
+        <label for="zusätzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt">Zusaetzliche Disqualifikationskriterien auf ORG Unit level Komma getrennt: </label>
+        <input type="text" [(ngModel)]="editedItem.zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt" name="zusätzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt" required><br>
+
+        <label for="ausnahmenAllgGültigerFilterkriterienAufDieserOrgUnit">Ausnahmen allg. gueltiger Filterkriterien auf dieser ORG Unit: </label>
+        <input type="text" [(ngModel)]="editedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit" name="ausnahmenAllgGültigerFilterkriterienAufDieserOrgUnit" required><br>
+
         <input type="submit" value="Speichern">
     </form>
     <table>
@@ -84,6 +96,8 @@
             <th>Mindest-preis check</th>
             <th>Anzahl Ladungen am Tag</th>
             <th>Multiplikator</th>
+            <th>Zusaetzliche Disqualifikationskriterien auf ORG Unit level Komma getrennt</th>
+            <th>Ausnahmen allg. gueltiger Filterkriterien auf dieser ORG Unit</th>
             <th>Edit</th>
         </tr>
         <tr *ngFor="let item of data">
@@ -95,6 +109,8 @@
             <td>{{item.mindestPreisCheck}}</td>
             <td>{{item.anzahlLadungenAmTag}}</td>
             <td>{{item.multiplikator}}</td>
+            <td>{{item.zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt}}</td>
+            <td>{{item.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit}}</td>
             <button type="button" class="btn btn-default btn-sm" (click)="editItem(item)">
                 <span class="glyphicon glyphicon-edit"></span> Edit
             </button>

@@ -55,7 +55,9 @@ export class EinstellungenComponent {
         "hhBisBeladezeitendeGueltigkeit": this.addedItem.hhBisBeladezeitendeGueltigkeit,
         "mindestPreisCheck": this.addedItem.mindestPreisCheck,
         "anzahlLadungenAmTag": this.addedItem.anzahlLadungenAmTag,
-        "multiplikator": this.addedItem.multiplikator
+        "multiplikator": this.addedItem.multiplikator,
+        "zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt": this.addedItem.zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt,
+        "ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit": this.addedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit
       }
     }
 
@@ -98,7 +100,9 @@ export class EinstellungenComponent {
           "hhBisBeladezeitendeGueltigkeit": this.editedItem.hhBisBeladezeitendeGueltigkeit,
           "mindestPreisCheck": this.editedItem.mindestPreisCheck,
           "anzahlLadungenAmTag": this.editedItem.anzahlLadungenAmTag,
-          "multiplikator": this.editedItem.multiplikator
+          "multiplikator": this.editedItem.multiplikator,
+          "zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt": this.editedItem.zusaetzlicheDisqualifikationskriterienAufOrgUnitLevelKommaGetrennt,
+          "ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit": this.editedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit
         }
       }
 
