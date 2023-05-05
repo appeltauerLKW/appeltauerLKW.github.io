@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+.snackbar {
+    color:green;
+    font-weight: bold;
+}
+
+.snackbar span {
+    color:green;
+    font-weight:bolder;
+    background-color:rgb(182, 213, 182);
+    border-radius:10px;
+}

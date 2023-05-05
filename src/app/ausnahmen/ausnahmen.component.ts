@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Injectable, NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-ausnahmen',
@@ -18,6 +20,8 @@ export class AusnahmenComponent {
   filter:string = "";
   newOrg: any;
 
+  constructor(public snackBar: MatSnackBar,
+    private zone: NgZone) {}
 
   ngOnInit() {
     let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/ausnahmen?filter[org]=' + this.filter;
@@ -68,13 +72,7 @@ export class AusnahmenComponent {
     .then((response) => response.json())
     .then(json => {
       // Do something with object
-      console.log(json.disqualifikationskriterien);
-      let responseElement = document.createElement('div');
-      responseElement.innerHTML = JSON.stringify(json);
-
-      // Append the new element to the document body
-      document.body.appendChild(responseElement); //IMPORTANT --- SHOWS ACTUAL RESPONSE CODE!!! DONT DELETE
-    });  
+      });  
     this.addedItem = false;
   }
 
@@ -103,9 +101,11 @@ export class AusnahmenComponent {
       .then((response) => response.json())
       .then(json => {
         // Do something with object
-        document.body.append(JSON.stringify(json));
       });
 
       this.editedItem = null;
+      this.zone.run(() => {
+        this.snackBar.open("Änderungen gespeichert, es kann etwas dauern bis sie übernommen werden, sollten aber mit dem nächsten aktualisieren oder Suchen sichtbar werden.", "OK" ,{duration: 4000, panelClass:['snackbar']});
+      });
   }
 }

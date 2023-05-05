@@ -11,6 +11,10 @@ import { EinstellungenComponent } from './einstellungen/einstellungen.component'
 import { AusnahmenComponent } from './ausnahmen/ausnahmen.component';
 import { NavComponent } from './nav/nav.component';
 import { LoginComponent } from './login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from  
+    '@angular/platform-browser/animations'; 
+import { MatButtonModule } from '@angular/material/button'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

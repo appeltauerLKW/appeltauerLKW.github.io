@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Injectable, NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-einstellungen',
@@ -17,6 +19,9 @@ export class EinstellungenComponent {
   editedItem: any;
   filter:string = "";
   newOrg: any;
+
+  constructor(public snackBar: MatSnackBar,
+    private zone: NgZone) {}
 
   ngOnInit() {
     let url = 'https://api.sheety.co/d55ee627ceba7b9730be8dacde874d31/filterkriterienAnbotsabgabe/einstellungen?filter[org]=' + this.filter;
@@ -60,13 +65,6 @@ export class EinstellungenComponent {
         "ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit": this.addedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit
       }
     }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-
-
     fetch(url, {
       method: 'POST',
       headers: {
@@ -76,13 +74,6 @@ export class EinstellungenComponent {
     })
     .then((response) => response.json())
     .then(json => {
-      // Do something with object
-      console.log(json.disqualifikationskriterien);
-      let responseElement = document.createElement('div');
-      responseElement.innerHTML = JSON.stringify(json);
-
-      // Append the new element to the document body
-      document.body.appendChild(responseElement); //IMPORTANT --- SHOWS ACTUAL RESPONSE CODE!!! DONT DELETE
     });  
     this.addedItem = false;
   }
@@ -105,15 +96,6 @@ export class EinstellungenComponent {
           "ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit": this.editedItem.ausnahmenAllgGueltigerFilterkriterienAufDieserOrgUnit
         }
       }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-      document.body.append("id:");
-      document.body.append(this.editedItem.id);
-      
-
       fetch(url, {
         method: 'PUT',
         headers: {
@@ -128,5 +110,8 @@ export class EinstellungenComponent {
       });
 
       this.editedItem = null;
+      this.zone.run(() => {
+        this.snackBar.open("Änderungen gespeichert, es kann etwas dauern bis sie übernommen werden, sollten aber mit dem nächsten aktualisieren oder Suchen sichtbar werden.", "OK" ,{duration: 4000, panelClass:['snackbar']});
+      });
   }
 }

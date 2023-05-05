@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Injectable, NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-mindestpreis',
@@ -11,6 +13,9 @@ export class MindestpreisComponent {
   filter:string = "";
   newOrg: any;
 
+  constructor(public snackBar: MatSnackBar,
+    private zone: NgZone) {}
+  
   onSubmitOrg(form: NgForm) {
       this.filter = this.newOrg;
       this.ngOnInit();
@@ -30,7 +35,6 @@ export class MindestpreisComponent {
 
     editItem(item: any) {
       this.editedItem = Object.assign({}, item);
-      
     }
 
     
@@ -54,7 +58,11 @@ export class MindestpreisComponent {
       .then(json => {
         // Do something with object
       });
-
       this.editedItem = null;
-}
+      //alert("Änderungen wurden gespeichtert, bitte erneut auf Suchen klicken, um die Ansicht zu aktualisieren (kann manchmal ein wenig dauern)")
+      this.zone.run(() => {
+        this.snackBar.open("Änderungen gespeichert, es kann etwas dauern bis sie übernommen werden, sollten aber mit dem nächsten aktualisieren oder Suchen sichtbar werden.", "OK" ,{duration: 4000, panelClass:['snackbar']});
+      });
+      
+    }
 }
