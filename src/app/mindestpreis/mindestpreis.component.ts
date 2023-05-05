@@ -42,15 +42,6 @@ export class MindestpreisComponent {
         //ACHTUNG DER TYPO IST BEACHBSICHTIGT!! SHEETY ERWARTET "mindestprei" OHNE "s"
         mindestprei: data
       }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-      document.body.append("id:");
-      document.body.append(this.editedItem.id);
-      
-
       fetch(url, {
         method: 'PUT',
         headers: {
@@ -61,7 +52,6 @@ export class MindestpreisComponent {
       .then((response) => response.json())
       .then(json => {
         // Do something with object
-        document.body.append(JSON.stringify(json));
       });
 
       this.editedItem = null;

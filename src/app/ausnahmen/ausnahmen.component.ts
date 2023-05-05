@@ -58,13 +58,6 @@ export class AusnahmenComponent {
         "nachPlz": this.addedItem.nachPlz
       }
     }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-
-
     fetch(url, {
       method: 'POST',
       headers: {
@@ -100,15 +93,6 @@ export class AusnahmenComponent {
           "nachPlz": this.editedItem.nachPlz
         }
       }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-      document.body.append("id:");
-      document.body.append(this.editedItem.id);
-      
-
       fetch(url, {
         method: 'PUT',
         headers: {
