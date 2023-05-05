@@ -45,13 +45,6 @@ export class DisqualifikationskriterienComponent {
         "fahrzeug (anforderung)": this.addedItem['fahrzeug (anforderung)']
       }
     }
-
-      //print übergenenen string am ende
-      let tempElement = document.createElement('div');
-      tempElement.innerHTML = JSON.stringify(body);
-      document.body.appendChild(tempElement);
-
-
     fetch(url, {
       method: 'POST',
       headers: {
@@ -62,12 +55,6 @@ export class DisqualifikationskriterienComponent {
     .then((response) => response.json())
     .then(json => {
       // Do something with object
-      console.log(json.disqualifikationskriterien);
-      let responseElement = document.createElement('div');
-  responseElement.innerHTML = JSON.stringify(json);
-
-  // Append the new element to the document body
-  document.body.appendChild(responseElement); //IMPORTANT --- SHOWS ACTUAL RESPONSE CODE!!! DONT DELETE
-    });
+      });
   }
 }

@@ -36,9 +36,6 @@ export class MindestpreisComponent {
     editItem(item: any) {
       this.editedItem = Object.assign({}, item);
     }
-
-    
-
     onSubmitEdit(form: NgForm) {
       const Id = this.editedItem.id;
       const data = this.editedItem;

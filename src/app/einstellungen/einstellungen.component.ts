@@ -106,7 +106,6 @@ export class EinstellungenComponent {
       .then((response) => response.json())
       .then(json => {
         // Do something with object
-        document.body.append(JSON.stringify(json));
       });
 
       this.editedItem = null;
