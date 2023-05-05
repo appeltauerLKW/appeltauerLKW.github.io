@@ -10,6 +10,7 @@ export class MindestpreisComponent {
   data: any[] = [];
   filter:string = "";
   newOrg: any;
+
   onSubmitOrg(form: NgForm) {
       this.filter = this.newOrg;
       this.ngOnInit();
