@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {Injectable, NgZone} from '@angular/core';
+import {NgZone} from '@angular/core';
 
 @Component({
   selector: 'app-mindestpreis',
