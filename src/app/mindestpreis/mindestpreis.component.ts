@@ -58,7 +58,7 @@ export class MindestpreisComponent {
       this.editedItem = null;
       //alert("Änderungen wurden gespeichtert, bitte erneut auf Suchen klicken, um die Ansicht zu aktualisieren (kann manchmal ein wenig dauern)")
       this.zone.run(() => {
-        this.snackBar.open("Änderungen gespeichert, es kann etwas dauern bis sie übernommen werden, sollten aber mit dem nächsten aktualisieren oder Suchen sichtbar werden.", "OK" ,{duration: 8000, panelClass:['snackbar']});
+        this.snackBar.open("Änderungen gespeichert, es kann etwas dauern bis sie übernommen werden, sollten aber mit dem nächsten aktualisieren oder Suchen sichtbar werden.", "OK" ,{duration: 4000, panelClass:['snackbar']});
       });
       
     }
